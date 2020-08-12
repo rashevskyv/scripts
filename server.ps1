@@ -7,3 +7,5 @@ $path = "F:\git\site\"
 cd $path$repo
 
 bundle exec jekyll serve
+
+pause
