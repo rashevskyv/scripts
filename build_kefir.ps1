@@ -2,10 +2,12 @@
 
 #$repo = Read-Host
 $version = Get-Content E:\Switch\_kefir\version
+$link = Get-Content F:\git\dev\nx-links\cfws.json
 $commit = "kefir" + $version
 
 $repo = "switch"
 $path = "F:\git\site\"
+$nxlink = "F:\git\dev\nx-links"
 
 cd $path$repo
 
@@ -107,4 +109,18 @@ cd $path"index"
 
 git add .
 git commit -m $repo": "$commit
+git push 
+
+write-host "`n"
+write-host  "-------------------------------------------------------------"
+write-host  "                        Push index"
+write-host  "-------------------------------------------------------------"
+write-host "`n"
+
+$string = $link -replace '\d\d\d', $version
+$string | Set-Content F:\git\dev\nx-links\cfws.json
+
+cd $nxlink
+git add .
+git commit -m $commit
 git push 
