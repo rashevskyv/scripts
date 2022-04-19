@@ -1,13 +1,14 @@
 ﻿#Install-Module PSWriteColor
 
 #$repo = Read-Host
-$version = Get-Content E:\Switch\_kefir\version
-$link = Get-Content F:\git\dev\nx-links\cfws.json
+$version = Get-Content D:\git\dev\_kefir\version
+$link = Get-Content D:\git\dev\nx-links\cfws.json
+$link_old = Get-Content D:\git\dev\nx-links\cfw.json
 $commit = "kefir" + $version
 
 $repo = "switch"
-$path = "F:\git\site\"
-$nxlink = "F:\git\dev\nx-links"
+$path = "D:\git\site\"
+$nxlink = "D:\git\dev\nx-links"
 
 cd $path$repo
 
@@ -31,7 +32,7 @@ Write-host "                         Build site"
 write-host  "-------------------------------------------------------------"
 write-host "`n"
 
-jekyll build
+bundle exec jekyll build
 
 write-host "`n"
 write-host  "-------------------------------------------------------------"
@@ -118,7 +119,9 @@ write-host  "-------------------------------------------------------------"
 write-host "`n"
 
 $string = $link -replace '\d\d\d', $version
-$string | Set-Content F:\git\dev\nx-links\cfws.json
+$string | Set-Content D:\git\dev\nx-links\cfws.json
+$string = $link_old -replace '\d\d\d', $version
+$string | Set-Content D:\git\dev\nx-links\cfw.json
 
 cd $nxlink
 git add .

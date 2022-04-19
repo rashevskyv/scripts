@@ -2,7 +2,7 @@
 write-host "Repo name:"
 $repo = Read-Host
 
-$path = "F:\git\site\"
+$path = "D:\git\site\"
 
 cd $path$repo
 

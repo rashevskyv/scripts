@@ -4,7 +4,7 @@ $repo = Read-Host
 write-host "Commit: "
 $commit = Read-Host
 
-$path = "F:\git\site\"
+$path = "D:\git\site\"
 
 cd $path$repo
 
@@ -28,8 +28,7 @@ write-host "                    Build site"
 write-host "-------------------------------------------------------------"
 write-host "`n"
 
-jekyll build
-
+bundle exec jekyll build
 
 write-host "`n"
 write-host "-------------------------------------------------------------"
