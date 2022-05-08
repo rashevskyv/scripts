@@ -3,12 +3,13 @@
 #$repo = Read-Host
 $version = Get-Content D:\git\dev\_kefir\version
 $link = Get-Content D:\git\dev\nx-links\cfws.json
+$nxlinks = Get-Content D:\git\dev\nx-links\nx-links.json
 $link_old = Get-Content D:\git\dev\nx-links\cfw.json
 $commit = "kefir" + $version
 
 $repo = "switch"
 $path = "D:\git\site\"
-$nxlink = "D:\git\dev\nx-links"
+$links_folder = "D:\git\dev\nx-links"
 
 cd $path$repo
 
@@ -119,11 +120,13 @@ write-host  "-------------------------------------------------------------"
 write-host "`n"
 
 $string = $link -replace '\d\d\d', $version
-$string | Set-Content D:\git\dev\nx-links\cfws.json
+$string | Set-Content $link
 $string = $link_old -replace '\d\d\d', $version
-$string | Set-Content D:\git\dev\nx-links\cfw.json
+$string | Set-Content $link_old
+$string = $nxlinks -replace '\d\d\d', $version
+$string | Set-Content $nxlinks
 
-cd $nxlink
+cd $links_folder
 git add .
 git commit -m $commit
 git push 
