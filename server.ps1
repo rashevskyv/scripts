@@ -2,10 +2,10 @@
 write-host "Repo name:"
 $repo = Read-Host
 
-$path = "D:\git\site\"
+$path = "F:\git\site\"
 
 cd $path$repo
 
-bundle exec jekyll serve
+bundle exec jekyll serve --trace
 
 pause

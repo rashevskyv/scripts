@@ -4,7 +4,7 @@ $repo = Read-Host
 write-host "Commit: "
 $commit = Read-Host
 
-$path = "D:\git\site\"
+$path = "F:\git\site\"
 
 cd $path$repo
 
@@ -107,3 +107,5 @@ cd $path"index"
 git add .
 git commit -m $repo": "$commit
 git push 
+
+pause
