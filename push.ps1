@@ -4,7 +4,7 @@ $repo = Read-Host
 write-host "Commit: "
 $commit = Read-Host
 
-$path = "E:\git\site\"
+$path = "F:\git\site\"
 
 cd $path$repo
 
